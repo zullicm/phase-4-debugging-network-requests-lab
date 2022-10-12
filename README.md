@@ -63,11 +63,16 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  First atttempted to sumbit a toy with the form and took note of what happened in the console.
+  Got a 500 error meaning there was a error within the server so I checked what the server logs had to say and there was a NameError in the toy controller, on the create method. The Toy class was spelt as Toys.
+  After updating the controller and submitting a toy I got a 201 and the toy was submitted successfully.
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  When liking a toy I would get an unpermitted parameter inthe console so first course of action was to permit it. After that I was still getting the same error in the browsers console and on reloading of the page the like update was indeed succesful. The next course of action for me was to look at what react was receiving back from the server. The server wasnt sending anything back so I had it send back the updated object and that fixed the issue as thats what is was attempting to didsplay
 
 - Donate a toy to Goodwill (and delete it from our database)
 
-  - How I debugged:
+  - How I debugged: 
+  In the browsers console I was getting a 404 meaning there was no route to be found. Taking a look in the routes i saw there was no "DESTROY" route. After adding one in the donate button worked as expected
